@@ -66,7 +66,7 @@ async function sendMessagetoDiscord(message: string) {
     }
 }
 
-export async function GET(req: any, res: any ): Promise<NextResponse<CResponse>> {
+export async function GET(): Promise<NextResponse<CResponse>> {
     const lastDay = new Date(new Date().getFullYear(), 11, 31);
     const today = new Date();
 
