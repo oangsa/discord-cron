@@ -76,6 +76,12 @@ export async function GET(): Promise<NextResponse<CResponse>> {
 
     const buffer = await generateProgressBar(percent);
 
+    // Attempt to send happy new year message
+    if (new Date().getMonth() === 0 && new Date().getDate() === 1) {
+        await sendMessagetoDiscord(`${new Date().getFullYear()-1} Ended!`);
+        await sendMessagetoDiscord(`Happy New Year ${new Date().getFullYear()}!`);
+    }
+
     await sendToDiscord(buffer);
 
     return NextResponse.json({ message: "OK" }, { status: 200 })
